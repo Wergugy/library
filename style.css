@@ -62,6 +62,15 @@ table {
 
         width: fit-content;
         border: 2px solid black;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+form#newBook.hidden {
+	visibility: hidden;
 }
 
 input {
