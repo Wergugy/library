@@ -56,7 +56,7 @@ table {
 
 #newBook {
         display: grid;
-        grid: 1fr 1fr 1fr 1fr 1fr / 1fr;
+        grid: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
         align-items: center;
         justify-items: center;
 
