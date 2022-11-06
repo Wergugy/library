@@ -8,24 +8,6 @@ function book(title, author, genre, pages, read) {
         this.read = read ? 'Read' : 'Unread';
 };
 
-function addNewBook(event) {
-        event.preventDefault();
-
-        const bookInfo = Array.from(document.querySelectorAll('.info'));
-
-        const title = bookInfo.find(info => info.classList.contains('title')).value;
-        const author = bookInfo.find(info => info.classList.contains('author')).value;
-        const genre = bookInfo.find(info => info.classList.contains('genre')).value;
-        const pages = bookInfo.find(info => info.classList.contains('pages')).value;
-        const read = bookInfo.find(info => info.classList.contains('read')).checked;
-
-        const bookToAdd = new book(title, author, genre, pages, read);
-
-        library.push(bookToAdd);
-
-        bookToAdd.createCard();
-};
-
 book.prototype.createCard = function() {
         const newCard = document.createElement('div');
         newCard.classList.add('card');
@@ -70,4 +52,31 @@ book.prototype.createCard = function() {
 
 };
 
+function addNewBook(event) {
+        event.preventDefault();
+
+        const bookInfo = Array.from(document.querySelectorAll('.info'));
+
+        const title = bookInfo.find(info => info.classList.contains('title')).value;
+        const author = bookInfo.find(info => info.classList.contains('author')).value;
+        const genre = bookInfo.find(info => info.classList.contains('genre')).value;
+        const pages = bookInfo.find(info => info.classList.contains('pages')).value;
+        const read = bookInfo.find(info => info.classList.contains('read')).checked;
+
+        const bookToAdd = new book(title, author, genre, pages, read);
+
+        library.push(bookToAdd);
+
+        bookToAdd.createCard();
+
+        hideNoHide(event);
+};
+
+function hideNoHide(e) {
+        e.stopPropagation();
+        document.querySelector('#newBook').classList.toggle('hidden');
+}
+
 document.querySelector('.addBook').addEventListener('click', addNewBook);
+
+document.querySelector('.addNewBook').addEventListener('click', hideNoHide);
