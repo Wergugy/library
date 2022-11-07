@@ -203,14 +203,13 @@ div.card.fixedLabel {
 }
 
 
-div.card button {
+div.card button,
+form button {
 	font-weight: 600;
 	padding: 0px 1px;
 	font-family: inherit;
 	background-color: var(--old-mauve);
 	color: var(--pale-silver);
-	
-
 }
 
 button.addNewBook {
@@ -225,7 +224,7 @@ button.addNewBook {
 	justify-self: center;
 }
 
-.title {
+.carousel .title {
 	margin-left: 10px;
 }
 
@@ -238,14 +237,20 @@ button.addNewBook {
 	grid: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
 	align-items: center;
 	justify-items: center;
+	gap: 3px;
 
 	width: fit-content;
-	border: 2px solid black;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 10px;
 
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -30%);
+
+	background-color: var(--artichoke);
 }
 
 form#newBook.hidden {
@@ -254,6 +259,26 @@ form#newBook.hidden {
 
 input {
 	width: 200px;
+	border-radius: 5px;
+	border: 2px solid var(--old-mauve);
+}
+
+input:focus,
+button:focus {
+	outline: 2px solid var(--tuscan-red);
+}
+
+input#read {
+	width: 150px;
+
+	position: relative;
+	left: 15px;
+	accent-color: var(--old-mauve);
+}
+
+form button {
+	font-size: 20px;
+	padding: 0px 5px;
 }
 
 body {
