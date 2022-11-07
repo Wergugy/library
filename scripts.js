@@ -40,7 +40,7 @@ book.prototype.createCard = function() {
 
         const readButton = document.createElement('button');
         readButton.classList.add('readButton');
-        readButton.textContent = 'Read';
+        readButton.textContent = (this.read === 'Read') ? 'Unread' : 'Read';
         newCard.appendChild(readButton);
 
         const removeButton = document.createElement('button');
@@ -92,7 +92,11 @@ function removeBook(e) {
 function readUnread(e) {
         e.stopPropagation();
         const read = e.target.previousElementSibling;
+        e.target.textContent = read.textContent;
         read.textContent = (read.textContent === 'Read') ? 'Unread' : 'Read';
+
+        const book = library[e.target.closest('.card').getAttribute('data-card') - 1];
+        book.read = read.textContent;
 };
 
 document.querySelector('.addBook').addEventListener('click', addNewBook);
