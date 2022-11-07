@@ -84,8 +84,11 @@ function removeBook(e) {
         const card = e.target.closest('.card');
         const location = card.getAttribute('data-card');
 
-        library.slice(location -1, location);
+        if (location > library.length) library.pop();
+        else library.splice(location - 1, 1);
+
         card.remove();
+
 
 };
 
