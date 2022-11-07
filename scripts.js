@@ -1,10 +1,10 @@
 const library = [];
 
 function book(title, author, genre, pages, read) {
-        this.title = title
-        this.author = author
-        this.genre = genre
-        this.pages = pages
+        this.title = title ? title : 'N/A'
+        this.author = author ? author : 'N/A'
+        this.genre = genre ? genre : 'N/A'
+        this.pages = pages ? genre : 'N/A'
         this.read = read ? 'Read' : 'Unread';
 };
 
@@ -50,6 +50,8 @@ book.prototype.createCard = function() {
 
         document.querySelector('.carousel').appendChild(newCard);
 
+        document.querySelectorAll('.removeButton').forEach(b => b.addEventListener('click', removeBook));
+        document.querySelectorAll('.readButton').forEach(b => b.addEventListener('click', readUnread));
 };
 
 function addNewBook(event) {
@@ -75,7 +77,23 @@ function addNewBook(event) {
 function hideNoHide(e) {
         e.stopPropagation();
         document.querySelector('#newBook').classList.toggle('hidden');
-}
+};
+
+function removeBook(e) {
+        e.stopPropagation();
+        const card = e.target.closest('.card');
+        const location = card.getAttribute('data-card');
+
+        library.slice(location -1, location);
+        card.remove();
+
+};
+
+function readUnread(e) {
+        e.stopPropagation();
+        const read = e.target.previousElementSibling;
+        read.textContent = (read.textContent === 'Read') ? 'Unread' : 'Read';
+};
 
 document.querySelector('.addBook').addEventListener('click', addNewBook);
 
