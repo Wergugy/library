@@ -141,12 +141,35 @@ table {
 	--pale-silver: hsla(46, 14%, 72%, 1);
 	--artichoke: hsla(77, 7%, 58%, 1);
 	--fern-green: hsla(110, 14%, 40%, 1);
+	--antique-bronze: hsla(52, 43%, 24%, 1);
 	--redwood: hsla(9, 38%, 49%, 1);
+	--jet: hsla(231, 12%, 21%, 1);
+	--burnt-orange: hsla(20, 61%, 46%, 1);
+	--tuscan-red: hsla(9, 26%, 40%, 1);
+
+	font-family: poor_storyregular;
+}
+
+@font-face {
+        font-family: 'poor_storyregular';
+        src: url(./fonts/poorstory-regular-webfont.woff2) format('woff2'),
+                url(./fonts/poorstory-regular-webfont.woff) format('woff');
+        font-weight: normal;
+        font-style: normal;
+
+}
+
+.beHolder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
 }
 
 .card {
-	border: 2px solid black;
 	padding: 5px;
+	background-color: var(--antique-bronze);
+	font-weight: 600;
 
 	display: grid;
 	grid: 1fr / repeat(7, 1fr);
@@ -156,17 +179,37 @@ table {
 
 }
 
+.card:nth-child(even) {
+	background-color: var(--fern-green);
+}
+
+
 div.card.fixedLabel {
 	position: fixed;
 	width: 432px;
-	background-color: var(--redwood);
+	background-color: var(--pale-silver);
 	border: none;
+	font-size: 18px;
+	gap: 20px;
 }
 
 
 div.card button {
-	font-size: 13px;
+	font-weight: 600;
 	padding: 0px 1px;
+	font-family: inherit;
+}
+
+button.addNewBook {
+	background-color: var(--old-mauve);
+	
+	font-family: inherit;
+	font-size: 24px;
+	color: var(--pale-silver);
+
+	width: 200px;
+
+	justify-self: center;
 }
 
 .title {
@@ -208,13 +251,16 @@ body {
 	height: 100vh;
 	width: 100vw;
 	flex-direction: column;
+
+	background-color: var(--jet);
 }
 
 .carousel {
 	width: 450px;
 	height: 300px;
 	flex: 1 0 auto;
-	border: 2px solid black;
+	border-radius: 10px;
+	background-color: var(--tuscan-red);
 
 	overflow: hidden scroll;
 
@@ -227,10 +273,12 @@ body {
 
 .carousel::-webkit-scrollbar {
 	width: 8px;
+	
 }
 
 .carousel::-webkit-scrollbar-track {
 	background-color: var(--pale-silver);
+	border: 1px dotted var(--antique-bronze);
 }
 
 .carousel::-webkit-scrollbar-thumb {
