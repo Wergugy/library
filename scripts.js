@@ -4,7 +4,7 @@ function book(title, author, genre, pages, read) {
         this.title = title ? title : 'N/A'
         this.author = author ? author : 'N/A'
         this.genre = genre ? genre : 'N/A'
-        this.pages = pages ? genre : 'N/A'
+        this.pages = pages ? pages : 'N/A'
         this.read = read ? 'Read' : 'Unread';
 };
 
